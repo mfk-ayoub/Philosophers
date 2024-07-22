@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:16 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/05/29 06:38:00 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/22 17:33:21 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 # define RESET "\033[0m"
 
 typedef struct s_input			t_input;
-typedef struct s_philosopher	t_philosopher;
+typedef struct s_philo			t_philo;
+
 
 typedef struct s_input
 {
@@ -40,30 +41,33 @@ typedef struct s_input
 	int							time_to_sleeping;
 	int							time_to_die;
 	int							how_many_eat;
-	t_philosopher				*philosophers;
 	pthread_mutex_t				*forks;
 
 }								t_input;
 
-typedef struct s_philosopher
+typedef struct s_philo
 {
-	int							id;
-	int							times_eaten;
-	int							last_meal_time;
-	pthread_t					thread;
-	pthread_mutex_t				*left_fork;
-	pthread_mutex_t				*right_fork;
-	t_input						*input;
-}								t_philosopher;
+	
+	pthread_mutex_t	r_forks;
+	pthread_mutex_t	l_forks;
+	pthread_mutex_t p_status;
+	pthread_t		philo_n;
+	int				flag;
+	int				eat_m;
+	int 			id;
+	t_input			*input;
+	
+	
+} t_philo;
+
 
 int								ft_atoi(const char *str);
 void							desplay_error(t_input *input, int ac,
 									char **av);
-void							desplay_message(t_input *input, char *message);
 void							check_agrc(char **av);
-long long						current_time(void);
-void							eating(t_philosopher *philosopher);
-void							sleeping(t_philosopher *philosopher);
-void							thinking(t_philosopher *philosopher);
+int								init_philo(t_philo *philo, t_input *input);
+void							*routine(void *argv);
+void								init_forks(t_philo *philo,t_input *input);
+void							destory_all(t_philo *philo);
 
-#endif
+#endif 

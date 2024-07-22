@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 15:00:15 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/05/29 06:16:15 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/11 11:26:32 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == '-')
 		{
-			printf(RED "Error must have all arguments positive\n" RESET);
+			printf(RED "Error must have all arguments positive\n"  RESET); 
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -54,17 +54,13 @@ void	desplay_error(t_input *input, int ac, char **av)
 		printf(RED "╭──── Syntax Error try : \n");
 		printf("╰─>" YELLOW " ./philo" RESET ERROR_MSG);
 		printf(RED LINE_L RESET);
-		printf("\t\t" GREEN "1) " RESET "number of philosophers \n");
-		printf("\t\t" GREEN "2) " RESET "time to die \n");
-		printf("\t\t" GREEN "3) " RESET "time to eat \n");
-		printf("\t\t" GREEN "4) " RESET "time to sleep  \n");
-		printf("\t\t" GREEN "5) " RESET NUM_EAT);
+		printf("\t\t" GREEN "1 ➫ " RESET "number of philosophers \n");
+		printf("\t\t" GREEN "2 ➫ " RESET "time to die \n");
+		printf("\t\t" GREEN "3 ➫ " RESET "time to eat \n");
+		printf("\t\t" GREEN "4 ➫ " RESET "time to sleep  \n");
+		printf("\t\t" GREEN "5 ➫ " RESET NUM_EAT);
 		printf(RED LINE_L RESET);
 		exit(EXIT_FAILURE);
-	}
-	else if (input->how_many == 1)
-	{
-		desplay_message(input, "philo 1  is thinking ");
 	}
 }
 
@@ -88,14 +84,8 @@ void	check_agrc(char **av)
 		i++;
 		if (flag == 0)
 		{
-			printf(RED "Error finding string in argument\n" RESET);
+			printf(RED "Error finding string in argument\n"  RESET);
 			exit(1);
 		}
 	}
-}
-
-void	desplay_message(t_input *input, char *message)
-{
-	(void)input;
-	printf("%s", message);
 }

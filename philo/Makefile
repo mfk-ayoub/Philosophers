@@ -6,19 +6,18 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/12 15:19:41 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/05/29 06:49:37 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/07/22 16:39:47 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 INCLUDE = philo.h
-CFLAGS = -Wall -Wextra -Werror #-pthread -fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread -g
 CC = cc 
-debug = -fsanitize=thread -g
+# debug = -fsanitize=thread -g
 
-SRC = main.c \
-	   superlib.c \
-	   helper.c 
+SRC:= $(wildcard *.c)
+
 
 OBJ = $(SRC:.c=.o)
 
