@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:07 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/22 17:31:31 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:57:39 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,21 @@ void	init_parameter(t_input *input, int ac, char **av)
 
 void *routine(void *argv)
 {
+	t_philo *philo;
 	
-	(void)argv;
-	printf("helllo");
-	return (NULL);
+	philo = (t_philo *)argv;
+	// while (1)
+    // {
+		// printf("philo = %d | right fokr = %d | left fork = %d\n", philo->id, philo->r_forks->id, philo->l_forks->id);
+		
+		pthread_mutex_lock(&philo->l_forks->lock);
+		printf("has taken a left fork %d\n", philo->id);
+		pthread_mutex_lock(&philo->r_forks->lock);
+		printf("has taken a right fork %d\n", philo->id);
+		pthread_mutex_unlock(&philo->l_forks->lock);
+		pthread_mutex_unlock(&philo->r_forks->lock);
+	// 
+    return NULL;
 }
 
 void destory_all(t_philo *philo)
@@ -39,7 +50,7 @@ void destory_all(t_philo *philo)
 	i = -1;
 	while (++i < philo->input->how_many)
 	{
-		pthread_mutex_destroy(&philo->input->forks[i]);
+		pthread_mutex_destroy(&philo->input->forks[i].lock);
 	}
 	
 	free(philo);

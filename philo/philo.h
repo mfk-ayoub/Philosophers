@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:16 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/22 17:33:21 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:58:43 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@
 typedef struct s_input			t_input;
 typedef struct s_philo			t_philo;
 
+typedef struct s_fork
+{
+	int id;
+	pthread_mutex_t lock;
+} t_fork;
 
 typedef struct s_input
 {
@@ -41,15 +46,15 @@ typedef struct s_input
 	int							time_to_sleeping;
 	int							time_to_die;
 	int							how_many_eat;
-	pthread_mutex_t				*forks;
-
+	t_fork				*forks;
 }								t_input;
+
 
 typedef struct s_philo
 {
 	
-	pthread_mutex_t	r_forks;
-	pthread_mutex_t	l_forks;
+	t_fork	*r_forks;
+	t_fork	*l_forks;
 	pthread_mutex_t p_status;
 	pthread_t		philo_n;
 	int				flag;
