@@ -6,13 +6,13 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/12 15:19:41 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/07/23 14:01:29 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/07/23 14:45:03 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 INCLUDE = philo.h
-CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror -pthread -g
 CC = cc 
 # debug = -fsanitize=thread -g
 

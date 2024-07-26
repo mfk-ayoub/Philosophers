@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == '-')
 		{
-			printf(RED "Error must have all arguments positive\n"  RESET); 
+			printf(RED "Error must have all arguments positive\n" RESET);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -84,7 +84,7 @@ void	check_agrc(char **av)
 		i++;
 		if (flag == 0)
 		{
-			printf(RED "Error finding string in argument\n"  RESET);
+			printf(RED "Error finding string in argument\n" RESET);
 			exit(1);
 		}
 	}
