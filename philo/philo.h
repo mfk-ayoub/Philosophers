@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:16 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/25 17:18:42 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:15:46 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # define ERROR_MSG " argument {[1] [2] [3] [4] and [5] optional argument}\n"
 # define LINE_L "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
@@ -56,7 +57,7 @@ typedef struct s_philo
 	t_fork				*l_forks;
 	pthread_mutex_t		p_status;
 	pthread_t			philo_n;
-	int					flag;
+	int					is_dead;
 	int					meals_eaten;
 	long 				last_meal;
 	int					id;

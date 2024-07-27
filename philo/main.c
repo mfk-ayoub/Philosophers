@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:07 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/25 17:21:10 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:11:34 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,8 @@ void	*routine(void *argv)
 	{
 		pthread_mutex_lock(&philo->l_forks->lock);
 		printf("has taken a fork %d\n", philo->id);
-		// montroning(philo);
 		pthread_mutex_lock(&philo->r_forks->lock);
 		printf("has taken a  fork %d\n", philo->id);
-		// montroning(philo);
 		pthread_mutex_unlock(&philo->l_forks->lock);
 		pthread_mutex_unlock(&philo->r_forks->lock);
 	}

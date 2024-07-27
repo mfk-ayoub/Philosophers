@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:10:42 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/25 17:18:05 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:15:25 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	init_philo(t_philo *philo, t_input *input)
 		philo[i].l_forks = &input->forks[i];
 		philo[i].r_forks = &input->forks[i + 1 % input->how_many];
 		philo[i].meals_eaten = 0;
+		philo[i].is_dead = true;
 		philo[i].last_meal = time_ms();
 		if (!!pthread_create(&philo[i].philo_n, NULL, &routine, &philo[i]))
 			return (0);
