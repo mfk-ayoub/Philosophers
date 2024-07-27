@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:16 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/07/27 19:15:46 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:38:01 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_philo
 	t_fork				*l_forks;
 	pthread_mutex_t		p_status;
 	pthread_t			philo_n;
-	int					is_dead;
+	bool				is_dead;
 	int					meals_eaten;
 	long 				last_meal;
 	int					id;
